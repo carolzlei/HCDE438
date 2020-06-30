@@ -3,7 +3,9 @@
 This is a cheatsheet for `git` commands
 
 `git add .` adds the code to the 
+
 `git commit -m ` commits the changes 
+
 `git push` pushes the changes 
 
 ## Online cheatsheets
