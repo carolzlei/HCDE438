@@ -1,28 +1,57 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
+import {MdFace} from 'react-icons/md';
+
 
 function NamePicker(props){
-    const [editName, setEditName] = useState(false)
     const [name, setName] = useState('')
-    const [editing, setEditing] = useState(false)
+    const [editName, setEditName] = useState(false)
 
+    // when this component loads, run this piece of code ONCE 
+    useEffect(()=>{
+        const storedName = localStorage.getItem('name') //localStorage is a built-in js storage
+        if(storedName) { // if name exists
+          setName(storedName) // set name to storedName
+          props.saveName(storedName) //save the name 
+        }
+    }, [])
 
-    return <div className="input-username">
+    return <div className="name-picker">
 
-        <input value={name} 
-            placeholder="username"
-            className="nameinput"
-            onChange={
-                e=> setName(e.target.value)
-            }
-            onKeyPress={e=> {
-                if(e.key ==='Enter' && name) {
-                    setName('')
+        {editName && <>
+            <input value={name} 
+                //placeholder="username"
+                onChange={
+                    e=> setName(e.target.value)
                 }
-            }}
-        />
-        <div>{name}</div>
-    </div>
+                /*onKeyPress={e=> {
+                    if(e.key ==='Enter' && name) {
+                        setName(e.target.value)
+                        setEditName(!editName)
+                    }
+                }} */
+            />
+            <MdFace 
+                size={20} 
+                color="grey"
+                onClick={()=> {  //another double brackets is needed because there are now more than two lines
+                    setEditName(!editName)
+                    props.saveName(name) //this sends the username to the app itself
+                    localStorage.setItem('name',name)
+                }}
+            />
+        </>}
 
+        {!editName && <>
+            <div>{name}</div>
+            <MdFace 
+                size={20} 
+                color = "grey" 
+                onClick={()=> { 
+                    setEditName(!editName)
+                }}
+            />
+        </>}
+    </div>
 }
 
 export default NamePicker

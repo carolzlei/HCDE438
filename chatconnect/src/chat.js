@@ -4,9 +4,15 @@ function Chat(props){
     const [text,setText] = useState('')
     //const [name, setName] = useState('')
 
-    return <div className="chat">
-        <div className="message">
-            {props.text}
+    //style={{ flexDirection: props.isMe?'row-reverse':'row'}}
+    return <div className="chat">   
+        <div>
+            <div className="msg-name">
+                {props.name || 'User'}
+            </div>
+            <div className="message">
+                {props.text}
+            </div>
         </div>
     </div>
 }

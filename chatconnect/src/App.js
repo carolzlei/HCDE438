@@ -23,26 +23,31 @@ function App(){ // function not stored in separate file because it is only a few
 function Room(props) {
   const room = props.match.params.room
   const {messages, send} = useDatu(room)
-  //const user = 
+  const [name, setName] =useState(false)
+
   return (
     <main className="main">
 
       <header>
         <input type="image" id="back" src="https://cdn.iconscout.com/icon/free/png-512/back-arrow-1767531-1502435.png" alt="back" width='25' height='25' />
         <div className="username">
-            <h3> room </h3>
+            <h3> {room} </h3>
         </div>
-        <NamePicker /> 
+        <NamePicker saveName={setName} /> 
     </header>
     
     <div className="messages">
       {messages.map((m,i)=> {
-        return <Chat key ={i} text={m.text} />
+        return <Chat key={i} 
+          text={m.text} 
+          name={m.name} 
+          isMe={m.name===name} // this is creating a new variable to test whether the name on the message is equal to our name
+          />
       })} 
     </div>
 
     <Footer 
-      onSend={text=> send({ text, room}) } // this sends messages to their perpsective room through the two params text and room
+      onSend={text=> send({ text, room, name}) } // this sends messages to their perpsective room through the two params text and room
     />  
 
   </main>

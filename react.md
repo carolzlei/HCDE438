@@ -69,3 +69,23 @@ function App(){
 
 }
 ```
+
+### useEffect
+```js
+function App(){
+    useEffect(()=>{
+        //run some code once on startup
+    }, [] )
+    return <div>hello world</div>
+}
+```
+
+**dor use useEffect more dynamically**
+```js
+function Person(props){
+    useEffect(()=>{
+        // this code will run EVERY time that persons "age changes
+    }, [props.age])
+    return <div>{props.age}</div>
+}
+```
