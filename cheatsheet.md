@@ -26,7 +26,6 @@
 syntax for passing a function into a prop: ()=> 
 
 
-
 ### Firebase deploy
 
 'firebase login" to login

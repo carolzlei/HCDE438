@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {MdFace} from 'react-icons/md';
+import {TiTick} from 'react-icons/ti';
 
 
 function NamePicker(props){
@@ -19,18 +20,18 @@ function NamePicker(props){
 
         {editName && <>
             <input value={name} 
-                //placeholder="username"
+                placeholder="username"
                 onChange={
                     e=> setName(e.target.value)
                 }
-                /*onKeyPress={e=> {
+                onKeyPress={e=> {
                     if(e.key ==='Enter' && name) {
                         setName(e.target.value)
                         setEditName(!editName)
                     }
-                }} */
+                }}
             />
-            <MdFace 
+            <TiTick
                 size={20} 
                 color="grey"
                 onClick={()=> {  //another double brackets is needed because there are now more than two lines
@@ -43,7 +44,7 @@ function NamePicker(props){
 
         {!editName && <>
             <div>{name}</div>
-            <MdFace 
+            <MdFace
                 size={20} 
                 color = "grey" 
                 onClick={()=> { 

@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Footer from './footer'
 import Chat from './chat'
-import NamePicker from './namePicker'
+import NamePicker from './NamePicker'
 import {initialize, useDatu} from 'datu'
 import {BrowserRouter, Route} from 'react-router-dom'
+
 
 function App(){ // function not stored in separate file because it is only a few lines long
   useEffect(()=>{ 

@@ -1,20 +1,36 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 function Chat(props){
-    const [text,setText] = useState('')
+    //const [text,setText] = useState('')
     //const [name, setName] = useState('')
 
-    //style={{ flexDirection: props.isMe?'row-reverse':'row'}}
-    return <div className="chat">   
-        <div>
-            <div className="msg-name">
-                {props.name || 'User'}
+    return <div className="chat">  
+
+        {props.isMe && <>
+            <div className="sent">
+                <div className="my-name">
+                    {props.name}
+                </div>
+                <div className="sent-message">
+                    {props.text}
+                </div>
             </div>
-            <div className="message">
-                {props.text}
+        </>}
+        
+        {!props.isMe && <>
+            <div className="received">
+                <div className="msg-name">
+                    {props.name || 'User'}
+                </div>
+                <div className="received-message">
+                    {props.text}
+                </div>
             </div>
-        </div>
+        </>}
+
     </div>
 }
 
 export default Chat
+
+
