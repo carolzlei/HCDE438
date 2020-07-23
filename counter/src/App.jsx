@@ -29,8 +29,18 @@ function App() {
 function Counter(props){ // this is jsx, the mashup of HTML and js
   const {label, n, initial} = props // this line deconstructs the props 
   const [counter, setCount] = useState(initial||0)
+
  // component function has a capital name and returns HTML
-  return <div>
+ // if counter === 10 then have a certain html element, <> React fragment </>face
+ // after the word return the language is HTML and some JS
+  return <div style={{marginTop:25}}>
+    {counter === 10 &&  <> 
+      <span> TEN TEN TEN </span>
+      <br >
+      </br>
+    </>}
+
+
     <button onClick={() => setCount(counter+n)} > 
       {label}
     </button>
