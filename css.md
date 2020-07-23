@@ -92,3 +92,29 @@ Here is a cheatsheet [link]{https://css-tricks.com/snippets/css/a-guide-to-flexb
 }
 ```
 
+### responsive CSS
+
+**media queries and REM** 
+```css 
+html{
+    font-size:15px; /* mobile default maybe */
+}
+@media (min-width:400px){
+    html{
+        font-size:19px; /* tablet maybe */
+    }
+}
+@media (min-width:768px){
+    html{
+        font-size:21px; /* desktop maybe */
+    }
+}
+
+.header{
+    padding:.2rem; 
+    height:2.5rem;
+}
+```
+- these are the standard three media sizes, mobile, tablet at 400 px and desktop at 768
+- you can use `rem` units to scale other elements on
+your page in relation to the `font-size` on your <html> element
