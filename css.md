@@ -88,6 +88,7 @@ Here is a cheatsheet [link]{https://css-tricks.com/snippets/css/a-guide-to-flexb
     align-items:center; /* flex-start, flex-end, space-between, space-evenly  */
     justify-content:center;
     flex:1;
+    flex-wrap:wrap; /* allows your children to wrap */
 }
 ```
 
